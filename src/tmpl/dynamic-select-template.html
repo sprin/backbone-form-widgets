@@ -1,0 +1,5 @@
+<option value="">---------</option>
+{{#each choices}}
+<option {{#if this.selected}}selected{{/if}} value="{{this.val}}">{{this.label}}</option>
+{{/each}}
+

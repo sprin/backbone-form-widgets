@@ -1,0 +1,16 @@
+<label for={{input_id}} class="col-xs-2 control-label">{{label}}
+{{#if tooltip_html}}
+  <span class="glyphicon glyphicon-question-sign"></span>
+{{/if}}
+</label>
+<div class="col-xs-10 control-input">
+  <span class="inline-tip">{{inline_tip_html}}</span>
+</div>
+{{#if errors}}
+<ul class="errorlist">
+  {{#each errors}}
+    <li>{{this}}</li>
+  {{/each}}
+</ul>
+{{/if}}
+

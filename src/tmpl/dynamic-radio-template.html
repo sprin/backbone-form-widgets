@@ -1,0 +1,9 @@
+{{#each choices}}
+<label for="{{../id}}_{{@index}}">
+  <input type="radio" id="{{../id}}_{{@index}}"
+  {{#if this.selected}}checked{{/if}}
+  value="{{this.val}}" name={{../name}}>
+  {{this.label}}
+</label>
+{{/each}}
+
