@@ -3,7 +3,7 @@ define(function (require) {
     Backbone = require('backbone'),
     Handlebars = require('handlebars'),
     bootstrap = require('bootstrap'),
-    form_input_row_template = require('text!tmpl/form-input-row-template.html');
+    form_input_row_template = require('text!./tmpl/form-input-row-template.html');
 
   // Bootstrap tooltip jQuery plugin is used for attaching tooltips to the
   // labels of input elements.

@@ -3,8 +3,8 @@ define(function (require) {
     Backbone = require('backbone'),
     $ = require('jquery'),
     Handlebars = require('handlebars'),
-    DynamicInputBase = require('dynamic-input-base'),
-    dynamic_select_template = require('text!tmpl/dynamic-select-template.html');
+    DynamicInputBase = require('./dynamic-input-base'),
+    dynamic_select_template = require('text!./tmpl/dynamic-select-template.html');
 
   // DynamicSelectView
   // -----------------

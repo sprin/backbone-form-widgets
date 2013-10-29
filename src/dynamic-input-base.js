@@ -1,7 +1,7 @@
 define(function (require) {
   var _ = require('underscore'),
     Backbone = require('backbone'),
-    GenericInputView = require('generic-input-view');
+    GenericInputView = require('./generic-input-view');
 
   // DynamicInputBase
   // -----------------
