@@ -4,7 +4,7 @@ define(function (require) {
     $ = require('jquery'),
     Handlebars = require('handlebars'),
     DynamicInputBase = require('dynamic-input-base'),
-    dynamic_select_template = require('text!tmpl/dynamic-select-template.html'),
+    dynamic_select_template = require('text!tmpl/dynamic-select-template.html');
 
   // DynamicSelectView
   // -----------------
