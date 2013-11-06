@@ -31,12 +31,26 @@ define(function (require) {
       t.input_view = new t.input_class(t.input_config);
     },
 
+    split_label: function(label) {
+      var splits = label.split(/\s/);
+      var last_word = splits.pop();
+      var butlast_word = splits.join(' ');
+      return [butlast_word, last_word];
+    },
+
     render: function() {
       var t = this;
+
+      // Split label so tooltip icon never appear on a line on its own.
+      var label_split = t.split_label(t.label);
+      var label_first = label_split[0];
+      var label_last = label_split[1];
+
       // Render the row, label, and inline tip.
       t.$el.html(t.template({
         input_id: t.input_config.attributes.id,
-        label: t.label,
+        label_first: label_first,
+        label_last: label_last,
         inline_tip_html: t.inline_tip_html,
         tooltip_html: t.tooltip_html,
         errors: t.errors
