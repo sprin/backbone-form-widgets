@@ -20,6 +20,7 @@ define(function (require) {
 
       this.bound_model = this.options.bound_model;
       this.bound_attr = this.options.bound_attr;
+      this.default_choice = this.bound_model.defaults[this.bound_attr];
 
       this.bound_model.on('change:' + this.bound_attr, this.render);
 
@@ -32,23 +33,23 @@ define(function (require) {
     // Render the building type select template.
     render: function() {
       // Clone the status choices into a list of objects.
-      var this_view = this,
+      var t = this,
           choice_objs;
 
       // Unset bound attr if no longer in choice list.
       if (!_.contains(
-        this.choice_collection.pluck('val'),
-        this.bound_model.get(this.bound_attr))
+        t.choice_collection.pluck('val'),
+        t.bound_model.get(t.bound_attr))
       ) {
-        this.bound_model.set(this.bound_attr, '');
+        t.bound_model.set(t.bound_attr, '');
       }
 
       choice_objs =
-        this.choice_collection.map(function(choice) {
+        t.choice_collection.map(function(choice) {
           choice_obj = choice.toJSON();
 
           if (
-            choice_obj.val === this_view.bound_model.get(this_view.bound_attr)
+            choice_obj.val === t.bound_model.get(t.bound_attr)
           ) {
             // Flag the selected status choice.
             choice_obj.selected = true;
@@ -56,13 +57,14 @@ define(function (require) {
           return choice_obj;
         });
 
-      this.$el.html(this.template({
-        name: this.attributes.name,
-        id: this.attributes.id,
+      t.$el.html(t.template({
+        name: t.attributes.name,
+        id: t.attributes.id,
         choices: choice_objs,
+        default_choice: t.default_choice
       }));
 
-      return this;
+      return t;
     },
 
   });
