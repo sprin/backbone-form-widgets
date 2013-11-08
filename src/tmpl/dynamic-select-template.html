@@ -1,4 +1,6 @@
+{{#unless default_choice}}
 <option value="">---------</option>
+{{/unless}}
 {{#each choices}}
 <option {{#if this.selected}}selected{{/if}} value="{{this.val}}">{{this.label}}</option>
 {{/each}}
